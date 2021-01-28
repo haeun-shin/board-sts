@@ -13,6 +13,7 @@
   - Mybatis
   - Lombok
   - Thymeleaf
+  - bootstrap
 
 <br><br>
 
@@ -20,12 +21,16 @@
 
 <br><br>
 
-## 🔨 기능
-### __게시물 작성__
-  - `@GetMapping(value = "/board/write.do")`
-  - `@PostMapping(value = "/board/register.do")`
-### __게시물 목록 조회__
-  - `@GetMapping(value = "/board/list.do")`
+## 🚩TASK
+
+| Task | URL | Method | Parameter | From | URL 이동| 비고 |
+|------|-----|:------:|:---------:|:----:|---------|------|
+게시물 등록        | `/board/write.do`   | GET   | idx(Long) |               | `board/write.html`        |
+게시물 등록 처리   | `/board/register.do`| POST  | BoardDTO  | 입력화면 필요 | `redirect:/board/list.do`
+게시물 목록 조회   | `/board/list.do`    | GET   |           |               | `board/list.html`
+게시물 조회        | `/board/view.do`    | GET   | idx(Long) |               | `board/view.html`
+게시물 수정        | `/board/write.do`   | GET   | idx(Long) |               | `board/write.html`        | idx가 존재할 경우, 게시물을 조회하여 나온 값을 가지고 수정폼(=등록폼)으로 이동
+게시물 수정        | `/board/register.do`| POST  | BoardDTO  | 입력화면 필요 | `redirect:/board/list.do` | idx 값의 여부에 따라, UPDATE 실행.<br> 존재하지 않을 경우 INSERT(등록 처리) 실행. 
 
 
 <br><br>
