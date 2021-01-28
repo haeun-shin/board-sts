@@ -28,8 +28,8 @@
 		, #{content}
 		, #{writer}
 		, 0
-		, NVL(#{noticeYn, jdbcType=VARCHAR}, 'N')
-		, NVL(#{secretYn, jdbcType=VARCHAR}, 'N')
+		, NVL(#{noticeYn,jdbcType=VARCHAR}, 'N')
+		, NVL(#{secretYn,jdbcType=VARCHAR}, 'N')
 		, 'N'
 		, sysdate
 		, null
@@ -82,8 +82,8 @@
 		, title = #{title}
 		, content = #{content}
 		, writer = #{writer}
-		, notice_yn = NVL(#{noticeYn, jdbcType=VARCHAR}, 'N')
-		, secret_yn = NVL(#{secretYn, jdbcType=VARCHAR}, 'N')
+		, notice_yn = NVL(#{noticeYn,jdbcType=VARCHAR}, 'N')
+		, secret_yn = NVL(#{secretYn,jdbcType=VARCHAR}, 'N')
 	WHERE
 		idx = #{idx}
 </update>
@@ -91,12 +91,12 @@
 <!-- 6. 게시글 삭제 -->
 <update id="deleteBoard" parameterType="long">
 	UPDATE
-		TB_Board
+	  TB_Board
 	SET
-		  delete_yn = 'Y',
-		, delete_time = sysdate
+	    delete_yn = 'Y'
+	  , delete_time = sysdate
 	WHERE
-		idx = #{idx}
+	  idx = #{idx}
 </update>
 
 </mapper>

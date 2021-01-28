@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.board.controller.BoardController;
 import com.board.domain.BoardDTO;
 import com.board.mapper.BoardMapper;
 
@@ -22,6 +23,15 @@ class MapperTests {
 		params.setWriter("테스트계정1");
 
 		int result = boardMapper.insertBoard(params);
+		System.out.println("결과는 " + result + "입니다.");
+	}
+	
+	/* 게시글 삭제 */
+	@Test
+	public void testOfDelete() {
+		long idx = 4;
+		
+		int result = boardMapper.deleteBoard(idx);
 		System.out.println("결과는 " + result + "입니다.");
 	}
 
