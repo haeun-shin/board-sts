@@ -12,19 +12,24 @@
   - Spring Data JPA
   - Thymeleaf
 
+<br><br>
 
-## TABLE
+---
+
+<br><br>
+
+## 📄 TABLE
 ### __TB_BOARD (게시판)__
 |NAME | DATA TYPE | NULLABLE | DATA DEFAULT | COMMENTS|
 |----|----|:----:|:----:|----|
-IDX         |	NUMBER(38,0)	    |   No	|       |번호(PK)
-TITLE       |	VARCHAR2(100 BYTE)	|   No	|       |제목
-CONTENT     |	VARCHAR2(3000 BYTE)	|   No	|       |내용
-WRITER      |	VARCHAR2(20 BYTE)	|   No	|       |작성자
-VIEW_CNT    |	NUMBER(38,0)	    |   Yes	|  0    |조회수
-NOTICE_YN   |	CHAR(4 BYTE)	    |   Yes	|       |공지글 여부
-SECRET_YN   |	CHAR(4 BYTE)	    |   Yes	|       |비밀글 여부
-DELETE_YN   |	CHAR(4 BYTE)	    |   Yes	|       |삭제 여부
-INSERT_TIME |	DATE	            |   Yes	|sysdate|등록일
-UPDATE_TIME |	DATE	            |   Yes	|       |수정일
-DELETE_TIME |	DATE	            |   Yes	|       |삭제일
+`IDX`         |	NUMBER(38,0)	    |   No	|       |번호(PK)
+`TITLE`       |	VARCHAR2(100 BYTE)	|   No	|       |제목
+`CONTENT`     |	VARCHAR2(3000 BYTE)	|   No	|       |내용
+`WRITER`      |	VARCHAR2(20 BYTE)	|   No	|       |작성자
+`VIEW_CNT`    |	NUMBER(38,0)	    |   Yes	|  0    |조회수
+`NOTICE_YN`   |	CHAR(4 BYTE)	    |   Yes	|       |공지글 여부
+`SECRET_YN`   |	CHAR(4 BYTE)	    |   Yes	|       |비밀글 여부
+`DELETE_YN`   |	CHAR(4 BYTE)	    |   Yes	|       |삭제 여부
+`INSERT_TIME` |	DATE	            |   Yes	|sysdate|등록일
+`UPDATE_TIME` |	DATE	            |   Yes	|       |수정일
+`DELETE_TIME` |	DATE	            |   Yes	|       |삭제일
