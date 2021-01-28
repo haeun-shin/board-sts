@@ -73,4 +73,19 @@
 		idx = #{idx}
 </select>
 
+<!-- 5. 게시글 수정 -->
+<update id="updateBoard" parameterType="BoardDTO">
+	UPDATE
+		TB_Board
+	SET
+		 update_time = sysdate
+		, title = #{title}
+		, content = #{content}
+		, writer = #{writer}
+		, notice_yn = NVL(#{noticeYn, jdbcType=VARCHAR}, 'N')
+		, secret_yn = NVL(#{secretYn, jdbcType=VARCHAR}, 'N')
+	WHERE
+		idx = #{idx}
+</update>
+
 </mapper>
