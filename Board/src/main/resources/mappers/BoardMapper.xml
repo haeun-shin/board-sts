@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- namespace: XML Mapper의 SQL 쿼리문과, Mapper 인터페이스의 메서드를 매핑하기 위해 지정하는 속성 -->
 <mapper namespace="com.board.mapper.BoardMapper">
 
 <sql id="boardColumns">
@@ -17,7 +18,7 @@
 	, delete_time
 </sql>
 
-<!-- 게시글 작성 -->
+<!-- 1. 게시글 작성 -->
 <insert id="insertBoard" parameterType="BoardDTO">
 	insert into TB_BOARD (
 		<include refid="boardColumns" />
@@ -35,5 +36,30 @@
 		, null
 	)
 </insert>
+
+<!-- 2. 게시글 목록 -->
+<select id="selectBoardList" parameterType="BoardDTO" resultType="BoardDTO">
+	SELECT
+		<include refid="boardColumns" />
+	FROM
+		TB_Board
+	WHERE
+		delete_yn = 'N'
+	ORDER BY
+		notice_yn ASC,
+		idx DESC,
+		insert_time DESC
+</select>
+
+<!-- 3. 게시글 개수 -->
+<select id="selectBoardTotalCount" parameterType="BoardDTO" resultType="int">
+	SELECT
+		COUNT(*)
+	FROM
+		tb_board
+	WHERE
+		delete_yn = 'N'
+</select>
+
 
 </mapper>
