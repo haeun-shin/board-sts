@@ -24,4 +24,7 @@ public interface BoardMapper {
 	// 게시글 수정
 	public int updateBoard(BoardDTO params);
 	
+	// 게시글 삭제
+	public int deleteBoard(Long idx);
+	
 }

@@ -94,4 +94,30 @@ public class BoardController {
 		
 		return "board/view";
 	}
+	
+	// 게시글 삭제
+	@PostMapping(value = "/board/delete.do")
+	public String deleteBoard(@RequestParam(value = "idx", required = false) Long idx) {
+		
+		// 올바르지 않은 접근 시
+		if(idx == null) {
+			// => 올바르지 않은 접근이라는 메시지를 전달하고, 게시글 리스트로 리다이렉트
+			return "redirect:/board/list.do";
+		}
+		
+		try {
+			boolean isDeleted = boardService.deleteBoard(idx);
+			
+			// false면 이미 게시글이 삭제된 상태
+			if(isDeleted == false) {
+				// => 게시글 삭제에 실패하였다는 메시지를 전달
+			}
+		} catch(DataAccessException e) {
+			// => 데이터베이스 처리 과정에 문제가 발생하였다는 메시지를 전달
+		} catch(Exception e) {
+			// => 시스템에 문제가 발생하였다는 메시지를 전달
+		}
+		
+		return "redirect:/board/list.do";
+	}
 }
