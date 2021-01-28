@@ -90,4 +90,26 @@ layout:decorator="board/layout/basic">
 	<!-- /.box-content -->
 </th:block>
 
+<!-- body.html 안에 script 영역 -->
+<th:block layout:fragment="script">
+	<!-- <script> 태그에 th:inline 속성을 javascript로 선언해야만 자바스크립트를 사용할 수 있다. -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+			function deleteBoard(idx) {
+				if (confirm(idx + "번 게시글을 삭제할까요?")) {
+					var uri = /*[[ @{/board/delete.do} ]]*/;
+					var html = "";
+
+					html += '<form name="dataForm" action="' + uri + '" method="post">';
+					html += 	'<input type="hidden" name="idx" value="' + idx + '" />';
+					html += '</form>';
+
+					$("body").append(html);
+					document.dataForm.submit();
+				}
+			}
+		/*]]>*/
+	</script>
+</th:block>
+
 </html>
