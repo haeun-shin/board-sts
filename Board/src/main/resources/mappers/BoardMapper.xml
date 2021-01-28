@@ -61,5 +61,16 @@
 		delete_yn = 'N'
 </select>
 
+<!-- 4. 게시글 조회 -->
+<select id="selectBoardDetail" parameterType="long" resultType="BoardDTO">
+	SELECT
+		<include refid="boardColumns" />
+	FROM
+		TB_Board
+	WHERE
+		delete_yn = 'N'
+	AND
+		idx = #{idx}
+</select>
 
 </mapper>

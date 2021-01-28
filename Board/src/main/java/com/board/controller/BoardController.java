@@ -55,4 +55,27 @@ public class BoardController {
 		
 		return "board/list";
 	}
+	
+	// 게시글 조회
+	@GetMapping(value = "/board/view.do")
+	public String openBoardDetail(@RequestParam(value = "idx", required = false) Long idx, Model model) {
+		
+		// 올바르지 않은 접근 시
+		if(idx == null) {
+			// => 올바르지 않은 접근이라는 메시지를 전달하고, 게시글 리스트로 리다이렉트
+			return "redirect:/board/list.do";
+		}
+		
+		BoardDTO board = boardService.getBoardDetail(idx);
+		
+		// 없는 게시글이거나, 이미 삭제된 게시글일 경우
+		if(board == null || "Y".equals(board.getDeleteYn())) {
+			// => 삭제된 게시글이라는 메시지를 전달하고, 게시글 리스트로 리다이렉트
+			return "redirect:/board/list.do";
+		}
+		
+		model.addAttribute("board", board);
+		
+		return "board/view";
+	}
 }

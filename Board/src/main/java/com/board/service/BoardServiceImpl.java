@@ -44,5 +44,13 @@ public class BoardServiceImpl implements BoardService{
 		
 		return boardList;
 	}
+	
+	// 게시글 조회
+	@Override
+	public BoardDTO getBoardDetail(Long idx) {
+		
+		return boardMapper.selectBoardDetail(idx);
+	}
+	
 }
  
