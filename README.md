@@ -1,5 +1,8 @@
 # board-sts
 스프링부트로 구현한 게시판
+> 커밋내역: https://github.com/haeun-shin/board-sts/commits
+
+<br>
 
 - 기본 구성
   - Spring Boot
@@ -9,8 +12,21 @@
   - Oracle 12c
   - Mybatis
   - Lombok
-  - Spring Data JPA
   - Thymeleaf
+
+<br><br>
+
+---
+
+<br><br>
+
+## 🔨 기능
+### __게시물 작성__
+  - `@GetMapping(value = "/board/write.do")`
+  - `@PostMapping(value = "/board/register.do")`
+### __게시물 목록 조회__
+  - `@GetMapping(value = "/board/list.do")`
+
 
 <br><br>
 
